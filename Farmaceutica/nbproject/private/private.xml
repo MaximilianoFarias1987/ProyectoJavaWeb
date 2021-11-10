@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Dtos/SuministroDto.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/TipoDocumento.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/ProveedorController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/Stock.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/index.html</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Dtos/EmpleadoDto.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/CategoriaController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Dtos/StockDto.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/ProvinciaController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/Suministro.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/TipoSuministroController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/RemitoController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Servlets/Login.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Servlets/RegistroSucursal.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/EmpleadoSucursalController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/TransportistaController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/Sucursal.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/DetalleRemitoController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/TipoDocumentoController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/TipoSuministro.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/MarcasController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Dtos/SucursalDto.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/listadoSucursales.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/Proveedor.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/reporte1.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/listadoSuministro.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/home.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/listadoEmpleados.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/SucursalController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/registroEmpleado.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Dtos/DetalleRemitoDto.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/generarRemito.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Servlets/ListadoSucursal.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/registroSuministro.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Servlets/RegistroSuministro.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/Marca.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/reporte2.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/registroSucursal.jsp</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Servlets/ListadoEmpleados.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Models/Transportista.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/src/java/Controllers/SuministroController.java</file>
+            <file>file:/C:/Users/Maxi%20Farias/Documents/NetBeansProjects/Farmaceutica/web/listadoRemito.jsp</file>
+        </group>
+    </open-files>
+</project-private>
