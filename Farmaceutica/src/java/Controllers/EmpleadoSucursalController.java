@@ -28,7 +28,7 @@ public class EmpleadoSucursalController {
         }
     }
 
-    public ArrayList<EmpleadoSucursal> ObtenerEmpleados() {
+    public ArrayList<EmpleadoSucursal> obtenerEmpleados() {
 
         ArrayList<EmpleadoSucursal> listado = new ArrayList<>();
 

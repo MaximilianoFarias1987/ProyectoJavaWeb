@@ -1,6 +1,7 @@
 package Controllers;
 
 import Dtos.StockDto;
+import Dtos.SucursalEmpleadoDto;
 import Dtos.SuministroDto;
 import Models.Proveedor;
 import Models.Suministro;
@@ -28,7 +29,7 @@ public class SuministroController {
         }
     }
 
-    public ArrayList<Suministro> ObtenerUministros() {
+    public ArrayList<Suministro> obtenerUministros() {
 
         ArrayList<Suministro> listado = new ArrayList<>();
 
@@ -144,4 +145,39 @@ public class SuministroController {
         }
         return listado;
     }
+    
+    
+     public float precioSuministro(int idSuministro) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        float precio = 0;
+        
+        try {
+            String Query = "select precio Precio\n" +
+                            "  from Suministros\n" +
+                            "  where idSuministro = ?";
+            con = DriverManager.getConnection(url, user, password);
+            ps = con.prepareStatement(Query);
+            ps.setInt(1, idSuministro);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                precio = rs.getFloat("Precio");
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(SuministroController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return precio;
+    }
+    
+    
+    
+    
 }

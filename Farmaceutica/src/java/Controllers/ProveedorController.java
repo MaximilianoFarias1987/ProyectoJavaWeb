@@ -1,5 +1,7 @@
 package Controllers;
 
+import Dtos.ProveedorTransportistaDto;
+import Dtos.SucursalEmpleadoDto;
 import Models.Proveedor;
 import Models.Sucursal;
 import java.sql.Connection;
@@ -26,7 +28,7 @@ public class ProveedorController {
     }
     
     
-    public ArrayList<Proveedor> ObtenerProveedores() {
+    public ArrayList<Proveedor> obtenerProveedores() {
 
         ArrayList<Proveedor> listado = new ArrayList<>();
 
@@ -80,5 +82,41 @@ public class ProveedorController {
                     Logger.getLogger(ProveedorController.class
         .getName()).log(Level.SEVERE, null, ex);
                 }
+    }
+    
+    
+    
+    public ArrayList<ProveedorTransportistaDto> listadoProveedorTransportistaDto(int idProveedor) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        ArrayList<ProveedorTransportistaDto> listado = new ArrayList<>();
+        ProveedorTransportistaDto dto = null;
+        try {
+            String Query = "select t.idTransportista Id, t.nombre + ' ' + t.apellido Nombre\n" +
+                            "  from Proveedores p join Transportistas t\n" +
+                            "  on p.idProveedor = t.idProveedor\n" +
+                            "  where p.idProveedor = ?";
+            con = DriverManager.getConnection(url, user, password);
+            ps = con.prepareStatement(Query);
+            ps.setInt(1, idProveedor);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                dto = new ProveedorTransportistaDto();
+                dto.setIdTransportista(rs.getInt("Id"));
+                dto.setNombre(rs.getString("Nombre"));
+                listado.add(dto);
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProveedorController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
     }
 }

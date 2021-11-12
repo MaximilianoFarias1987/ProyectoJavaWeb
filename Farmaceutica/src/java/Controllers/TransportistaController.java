@@ -26,7 +26,7 @@ public class TransportistaController {
     }
     
     
-    public ArrayList<Transportista> ObtenerTransportistas() {
+    public ArrayList<Transportista> obtenerTransportistas() {
 
         ArrayList<Transportista> listado = new ArrayList<>();
 

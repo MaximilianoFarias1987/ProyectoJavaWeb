@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="rem" class="Controllers.RemitoController" scope="page"></jsp:useBean>
 <!DOCTYPE html>
 
 <html>
@@ -180,6 +181,41 @@
                 <!-- Agregar contenido de la pagina  -->
                 <h1>Listado Remito</h1>
                 
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Suministro</th>
+                                <th>Precio</th>
+                                <th>Marca</th>
+                                <th>Categoria</th>
+                                <th>Tipo Suministro</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items= "${rem.ultimoRemito()}" var="p">
+
+                                <tr>
+                                    <td>${p.codigo}</td>
+                                    <td>${p.fecha}</td>
+                                    <td>${p.nomSucursal}</td>
+                                    <td>${p.provincia}</td>
+                                    <td>${p.telefono}</td>
+                                    <td>${p.subTotal}</td>
+
+                                    <td>
+                                        <!--                        <button type="button" id="Modificar" value="Detalles" class="btn btn-warning mr-1"><i class="fa fa-file-text-o" aria-hidden="true"></i></button>
+                                                                <button type="button" value="Actualizar" class="btn btn-primary" id="btnAbrirModalEdit"><i class="fa fa-pencil" aria-hidden="true"></i></button>-->
+                                        <a href="Modificacion?idPersona=" type="button" class="btn btn-warning" ><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+
+                </div>
                 
                 <!-- Fin contenido de la pagina  -->
             </div>

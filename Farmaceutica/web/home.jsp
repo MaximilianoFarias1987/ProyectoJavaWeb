@@ -1,8 +1,4 @@
-<%-- 
-    Document   : home
-    Created on : 03/11/2021, 11:53:57
-    Author     : Maxi Farias
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="sucursal" class="Controllers.SucursalController" scope="page"></jsp:useBean>
+<jsp:useBean id="proveedor" class="Controllers.ProveedorController" scope="page"></jsp:useBean>
 <!DOCTYPE html>
 
 <html>
@@ -13,6 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="cssLogin/style.css">
         <link rel="shortcut icon" href="images/EasyLog.png"/>
+        
     </head>
     <body>
 
@@ -180,15 +183,174 @@
                 <!-- Agregar contenido de la pagina  -->
                 <h1>Generar Remito</h1>
                 
+                <div class="container">
+                    <form action="RegistroRemito" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                            <select name="cboSucursal" class="form-control">
+                                                <option disabled selected> Seleccione una Sucursal</option>
+                                            <c:forEach items= "${sucursal.obtenerSucursales()}" var="p">
+                                                <option value="${p.idSucursal}">${p.nombre}</option>
+                                                </c:forEach>
+                                            </select>
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                            <select name="cboProveedor" class="form-control">
+                                                <option disabled selected> Seleccione un Proveedor</option>
+                                            <c:forEach items= "${proveedor.obtenerProveedores()}" var="p">
+                                                <option value="${p.idProveedor}">${p.nombre}</option>
+                                                </c:forEach>
+                                            </select>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                            <select name="txtIdEmpleado" class="form-control">
+                                                <option disabled selected> Seleccione un Empleado</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                            <select name="txtIdTransportista" class="form-control">
+                                                <option disabled selected> Seleccione un Transportista</option>
+                                            </select>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="row">
+<!--                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="txtFecha" id="txtFecha" value="" />
+                                </div>
+                            </div>-->
+                        </div>
+                        
+                        <a href="detalleRemito.jsp" class="btn btn-primary"> Agregar Suministros al Carro</a>
+                        <input type="submit" class="btn" value="Registrar"  style="background-color: #b21d19; color: white;"/>
+
+
+                    </form>
+                    
+                    <h1>Detalle de Remito </h1><br>
+                    <table id="mytable" name="mytable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Codigo Suministro</th>
+                                <th>Suministro</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${sessionScope.lstDetalle}" var="item">
+                                <tr>
+                                    <td>${item.idSuministro}</td>
+                                    <td>${item.suministro}</td>
+                                    <td>${item.cantidad}</td>
+                                    <td>$${item.precioUnitario}</td>
+                                    <td>$${item.cantidad * item.precioUnitario}</td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+
+                    </table>
+                    
+                    
+                </div>
+                
+                
                 
                 <!-- Fin contenido de la pagina  -->
             </div>
         </div>
-
+        
+        
         <script src="js/jquery.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="js/index.js"></script>
+        
+        <script>
+            $(document).ready(function(){
+                $('select[name=cboSucursal]').on('change', function(){
+                    $.ajax({
+                       type: 'GET',
+                       url: 'SucursalServlet',
+                       data: 'codigoSucursal='+$('select[name=cboSucursal]').val(),
+                       statusCode: {
+                           404: function(){
+                               alert('Pagina no encontrada');
+                           },
+                           500: function(){
+                               alert('Error de Servidor')
+                           }
+                       },
+                       success: function(datos){
+                           $('select[name=txtIdEmpleado] option').remove();
+                           let datosServlet = datos.split(":");
+                           
+                           if (datos === "") {
+                               $('select[name=txtIdEmpleado]').append('<option disabled selected>No hay empleados en esta sucursal</option> ');
+                            }
+                           
+                           for (var i = 0; i < datosServlet.length -1; i++) {
+                                let codigoEmpleado = datosServlet[i].split("-")[0];
+                                let nombreEmpleado = datosServlet[i].split("-")[1];
+                                console.log(codigoEmpleado , nombreEmpleado);
+                                
+                                $('select[name=txtIdEmpleado]').append('<option value = "'+codigoEmpleado+'">'+nombreEmpleado+'</option> ');
+                            }
+                           
+                       }
+                    });
+                });
+                
+                
+                
+                
+                $('select[name=cboProveedor]').on('change', function(){
+                    $.ajax({
+                       type: 'GET',
+                       url: 'ProveedorServlet',
+                       data: 'codigoProveedor='+$('select[name=cboProveedor]').val(),
+                       statusCode: {
+                           404: function(){
+                               alert('Pagina no encontrada');
+                           },
+                           500: function(){
+                               alert('Error de Servidor')
+                           }
+                       },
+                       success: function(datos){
+                           $('select[name=txtIdTransportista] option').remove();
+                           let datosServlet = datos.split(":");
+                           
+                           if (datos === "") {
+                               $('select[name=txtIdTransportista]').append('<option disabled selected>No hay transportistas en este Proveedor</option> ');
+                            }
+                           
+                           for (var i = 0; i < datosServlet.length -1; i++) {
+                                let codigoEmpleado = datosServlet[i].split("-")[0];
+                                let nombreEmpleado = datosServlet[i].split("-")[1];
+                                console.log(codigoEmpleado , nombreEmpleado);
+                                
+                                $('select[name=txtIdTransportista]').append('<option value = "'+codigoEmpleado+'">'+nombreEmpleado+'</option> ');
+                            }
+                           
+                       }
+                    });
+                });
+            });
+        </script>
+        
     </body>
 </html>

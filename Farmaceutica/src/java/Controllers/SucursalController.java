@@ -1,6 +1,7 @@
 package Controllers;
 
 import Dtos.SucursalDto;
+import Dtos.SucursalEmpleadoDto;
 import Models.Sucursal;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -101,6 +102,41 @@ public class SucursalController {
                 dto.setEmail(rs.getString("Email"));
                 dto.setTelefono(rs.getString("Telefono"));
                 dto.setProvincia(rs.getString("Provincia"));
+                listado.add(dto);
+            }
+
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(SucursalController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+    }
+    
+    
+    public ArrayList<SucursalEmpleadoDto> listadoSucursalEmpleadoDto(int idSucursal) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        ArrayList<SucursalEmpleadoDto> listado = new ArrayList<>();
+        SucursalEmpleadoDto dto = null;
+        try {
+            String Query = "select e.idEmpleado Id, e.nombre + ' ' + e.apellido Nombre\n" +
+                            "  from Sucursales s join EmpleadosSucursales e\n" +
+                            "  on s.idSucursal = e.idSucursal\n" +
+                            "  where s.idSucursal = ?";
+            con = DriverManager.getConnection(url, user, password);
+            ps = con.prepareStatement(Query);
+            ps.setInt(1, idSucursal);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                dto = new SucursalEmpleadoDto();
+                dto.setIdEmpleado(rs.getInt("Id"));
+                dto.setNombre(rs.getString("Nombre"));
                 listado.add(dto);
             }
 

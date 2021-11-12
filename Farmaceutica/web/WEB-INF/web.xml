@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>SucursalServlet</servlet-name>
+        <servlet-class>Servlets.SucursalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProveedorServlet</servlet-name>
+        <servlet-class>Servlets.ProveedorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SuministroServlet</servlet-name>
+        <servlet-class>Servlets.SuministroServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SucursalServlet</servlet-name>
+        <url-pattern>/SucursalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProveedorServlet</servlet-name>
+        <url-pattern>/ProveedorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SuministroServlet</servlet-name>
+        <url-pattern>/SuministroServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

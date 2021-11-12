@@ -216,8 +216,6 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-<!--                                        <input type="text" class="form-control" name="txtIdProvincia" placeholder="idProvincia" value="" />-->
-                                    
                                             <select name="txtIdProvincia" class="form-control">
                                                 <option disabled selected> Seleccione una Provincia</option>
                                             <c:forEach items= "${provincia.obtenerProvincias()}" var="p">
